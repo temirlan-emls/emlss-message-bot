@@ -23,9 +23,11 @@ async def cmd_clear(message: Message, bot: Bot) -> None:
 @base_router.message()
 async def echo_handler(message: Message) -> None:
     if message.text != 'cls':
-        r = await get_data(message.text)
-        r = r['choices'][0]['message']['content']
         try:
+            r = await get_data(message.text)
+            print(f'---------\n{r}\n---------')
+            r = r['choices'][0]['message']['content']
+            print(f'---------\nM:{message.text}\nA:{r}\n---------')
             await message.answer(r)
         except TypeError:
             await message.answer("Nice try!")
