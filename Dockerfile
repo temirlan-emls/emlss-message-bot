@@ -1,7 +1,7 @@
 FROM python:3.12-alpine
 
-RUN ["apt-get","update"]
-RUN ["apt-get","install","-y","vim"]
+RUN apt-get update
+RUN apt-get install vim
 
 WORKDIR /app
 
