@@ -2,5 +2,6 @@ version: '3'
 
 services:
   bot:
+    container_name: tele_bot
     build: .
     command: sh -c 'python main.py'
