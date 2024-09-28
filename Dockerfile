@@ -1,4 +1,4 @@
-FROM python:3.12-alpine
+FROM python:3.12-slim
 
 RUN apt-get update
 RUN apt-get install vim
