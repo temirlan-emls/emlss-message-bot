@@ -3,6 +3,7 @@ from aiogram.types import Message
 from aiogram.filters import CommandStart, Command
 from aiogram.exceptions import TelegramBadRequest
 from aiogram import F
+from core.services.gpt import get_data
 
 base_router = Router()
 
@@ -21,7 +22,10 @@ async def cmd_clear(message: Message, bot: Bot) -> None:
 
 @base_router.message()
 async def echo_handler(message: Message) -> None:
-    try:
-        await message.send_copy(chat_id=message.chat.id)
-    except TypeError:
-        await message.answer("Nice try!")
+    if message.text != 'cls':
+        r = await get_data(message.text)
+        r = r['choices'][0]['message']['content']
+        try:
+            await message.answer(r)
+        except TypeError:
+            await message.answer("Nice try!")

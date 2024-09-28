@@ -1,5 +1,5 @@
 import os
-from dotenv import load_dotenv
+
 import asyncio
 import logging
 import sys
@@ -11,9 +11,13 @@ from aiogram.enums import ParseMode
 from core.handlers.base import base_router
 from core.utils.commnads import set_commands
 
+from dotenv import load_dotenv
+
 load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_ID = os.getenv("ADMIN_ID")
+
+
 
 async def start_bot(bot: Bot) :
     await set_commands(bot)
