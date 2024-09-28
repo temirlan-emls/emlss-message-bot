@@ -1,5 +1,8 @@
 FROM python:3.12-alpine
 
+RUN ["apt-get","update"]
+RUN ["apt-get","install","-y","vim"]
+
 WORKDIR /app
 
 COPY ./reqs.txt ./
