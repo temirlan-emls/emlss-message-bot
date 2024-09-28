@@ -1,7 +1,7 @@
 FROM python:3.12-slim
 
 RUN apt-get update
-RUN apt-get install vim
+RUN apt-get install -y vim
 
 WORKDIR /app
 
