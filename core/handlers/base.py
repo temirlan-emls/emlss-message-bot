@@ -25,7 +25,6 @@ async def echo_handler(message: Message) -> None:
     if message.text != 'cls':
         try:
             r = await get_data(message.text)
-            print(f'---------\n{r}\n---------')
             r = r['choices'][0]['message']['content']
             print(f'---------\nM:{message.text}\nA:{r}\n---------')
             await message.answer(r)

@@ -1,8 +1,13 @@
 import aiohttp
 import json
 import os 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 GPT_API_TOKEN = os.getenv("GPT_API_TOKEN")
+
 
 url = "https://gpt.serverspace.kz/v1/chat/completions"
 
